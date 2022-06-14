@@ -35,7 +35,7 @@ function App() {
   const [aioKey, setAioKey] = useState('');
   const [devices, setDevices] = useState(
     [
-     {
+     /*{
         name: "Capacitive sensor",
         mac: "FF:FF:FF:FF:FF",
         feed: "",
@@ -57,7 +57,7 @@ function App() {
         sensorType: "Input",
         feed: "",
         connected: true
-      }
+      }*/
     ]
   );
 
@@ -167,6 +167,8 @@ function App() {
   };
 
   const handleRemoveDevice = (index, e) => {
+    setIsScanning(false);
+    clearInterval(scanIntervalId);
     let currentDevices = [...devices];
     currentDevices.splice(index, 1);
     setDevices(currentDevices);

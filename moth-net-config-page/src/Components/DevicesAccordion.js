@@ -1,4 +1,4 @@
-import { Accordion, Form } from "react-bootstrap";
+import { Accordion, Form, Button} from "react-bootstrap";
 import { Plug, PlugFill } from 'react-bootstrap-icons';
 
 function DevicesAccordion(props) {
@@ -22,6 +22,11 @@ function DevicesAccordion(props) {
                                 placeholder='Feed name'
                                 value={device.feed}
                             />
+                            {device.connected ? null : <Button
+                                onClick={(event) => props.onRemove(index, event)}
+                                variant="danger"
+                                className="mt-3"
+                            >Remove</Button>}
                         </Form.Group>
                     </Accordion.Body>
                 </Accordion.Item>

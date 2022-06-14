@@ -35,7 +35,7 @@ function App() {
   const [aioKey, setAioKey] = useState('');
   const [devices, setDevices] = useState(
     [
-     /*{
+     {
         name: "Capacitive sensor",
         mac: "FF:FF:FF:FF:FF",
         feed: "",
@@ -57,7 +57,7 @@ function App() {
         sensorType: "Input",
         feed: "",
         connected: true
-      }*/
+      }
     ]
   );
 
@@ -166,10 +166,15 @@ function App() {
     setDevices(currentDevices);
   };
 
+  const handleRemoveDevice = (index, e) => {
+    let currentDevices = [...devices];
+    currentDevices.splice(index, 1);
+    setDevices(currentDevices);
+  };
+
   const handleSave = (e) => {
     console.log('Saved devices');
     ws.send(JSON.stringify(devices));
-    // TODO send devices object to ESP
   };
 
   return (
@@ -219,6 +224,7 @@ function App() {
             <DevicesAccordion 
               devices={devices}
               onFeedChange={handleFeedChange}
+              onRemove={handleRemoveDevice}
             />
             <Button
               variant='primary'

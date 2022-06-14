@@ -13,7 +13,7 @@ TODO:
 [X] ui sends {"SSID": "MyNetwork", "PASS": "MyPassword"}
 [X] ui sends {"aio_user": "myaiouser", "aio_key": "myaiokey1234"}
 [X] ui sends manipulated devices object
-[ ] remove device button (only on disconnected devices)
+[X] remove device button (only on disconnected devices)
 [ ] use dropdown device list to select which sensor an action should be connected to
 [X] websockets with data: networks, devices, feeds, status
 */
